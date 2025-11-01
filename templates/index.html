@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamepass Shop</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="shop-header">
+        <div class="header-content">
+            <a href="/" class="logo">Gamepass Shop</a>
+            <a href="/checkout" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Premium <span class="text-red">Gamepass</span><br>At Best Prices</h1>
+            <p>Buy your favorite game subscriptions with cryptocurrency.<br>Fast, secure, and instant delivery.</p>
+            <a href="#products" class="cta-button">Browse Products</a>
+        </div>
+    </section>
+
+    <section class="search-bar-container">
+        <input type="text" id="search-input" placeholder="Search for gamepasses...">
+        </section>
+
+    <main class="shop-container" id="products">
+        <h2>Our Products</h2>
+        <div class="products-grid" id="products-grid">
+            <p>Cargando productos...</p>
+        </div>
+    </main>
+
+    <section class="features-section">
+        <h2>Why Choose <span class="text-red">Us</span></h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-bolt"></i>
+                <h3>Instant Delivery</h3>
+                <p>Receive your codes immediately after payment confirmation.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-lock"></i>
+                <h3>Secure Payments</h3>
+                <p>Pay with BTC, LTC, or USDT through our secure crypto gateway.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-tags"></i>
+                <h3>Best Prices</h3>
+                <p>Competitive pricing with regular discounts on all gamepasses.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="shop-footer">
+        <p>&copy; 2025 Gamepass Shop. All rights reserved.</p>
+        <a href="https://wa.me/18292637588" class="whatsapp-chat" target="_blank">
+            <i class="fab fa-whatsapp"></i> Chat con Soporte
+        </a>
+    </footer>
+
+    <script src="/static/shop.js"></script>
+</body>
+</html>

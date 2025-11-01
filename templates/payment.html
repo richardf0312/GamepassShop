@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Completar Pago</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="payment-body">
+
+    <div class="payment-container">
+        
+        <div class="card success-card">
+            <h3><i class="fas fa-check-circle"></i> Order Created Successfully!</h3>
+            <p>Your order has been created. Please complete the payment to receive your codes.</p>
+            <div class="order-number-box">
+                Order Number
+                <strong><span id="order-id">CARGANDO...</span></strong>
+            </div>
+        </div>
+
+        <div class="card payment-details-card">
+            <h3>Complete Payment</h3>
+            <p>Send exactly <strong><span id="exact-amount">...</span> <span id="currency-ticker">...</span></strong> to the address below:</p>
+            
+            <label>Payment Address / CLABE</label>
+            <div class="address-box">
+                <input type="text" id="wallet-address" value="CARGANDO..." readonly>
+                <button id="copy-button"><i class="fas fa-copy"></i></button>
+            </div>
+
+            <p class="qr-label">Or scan QR code</p>
+            <div class="qr-code-box">
+                <div id="qrcode"></div>
+            </div>
+
+            <div class="warning-box">
+                <strong>Important:</strong> Send the exact amount shown above. Your order will be processed automatically after payment confirmation.
+                <br><strong>Para Transferencia MX:</strong> Envía el comprobante a nuestro chat de soporte.
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/payment.js"></script>
+</body>
+</html>

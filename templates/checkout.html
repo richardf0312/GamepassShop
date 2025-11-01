@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="checkout-body">
+    
+    <header class="shop-header">
+        <div class="header-content">
+            <a href="/" class="logo">Gamepass Shop</a>
+            <span class="header-title">Checkout</span>
+        </div>
+    </header>
+
+    <main class="checkout-container">
+        
+        <div class="checkout-cart">
+            <div class="card">
+                <h3>Cart Items</h3>
+                <div id="cart-items-list">
+                    </div>
+            </div>
+        </div>
+
+        <div class="checkout-summary">
+            <div class="card">
+                <h3>Order Summary</h3>
+                <form id="checkout-form">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="tu-email@correo.com" required>
+
+                    <label>Payment Method</label>
+                    <div class="payment-methods">
+                        <input type="radio" name="payment" id="btc" value="btc" checked>
+                        <label for="btc" class="payment-option">BTC</label>
+                        
+                        <input type="radio" name="payment" id="ltc" value="ltc">
+                        <label for="ltc" class="payment-option">LTC</label>
+                        
+                        <input type="radio" name="payment" id="eth" value="eth">
+                        <label for="eth" class="payment-option">ETH</label>
+                        
+                        <input type="radio" name="payment" id="usdt" value="usdt">
+                        <label for="usdt" class="payment-option">USDT</label>
+                        
+                        <input type="radio" name="payment" id="mxn" value="transferencia_mx">
+                        <label for="mxn" class="payment-option">Transferencia MX</label>
+                    </div>
+
+                    <div class="order-summary-details">
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="summary-subtotal">$0.00</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total</span>
+                            <span id="summary-total">$0.00</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="proceed-btn">Proceed to Payment</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="/static/checkout.js"></script>
+</body>
+</html>

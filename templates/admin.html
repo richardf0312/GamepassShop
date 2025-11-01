@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="admin-body">
+    <header class="admin-header">
+        <h1>Admin Dashboard</h1>
+        <a href="/" class="header-link">← Back to Store</a>
+    </header>
+
+    <main class="admin-container">
+
+        <section class="stats-container">
+            <div class="stat-card">
+                <div class="stat-icon-bg"><i class="fas fa-box"></i></div>
+                <div class="stat-info">
+                    <span class="stat-title">Total Products</span>
+                    <strong id="stat-products">0</strong>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon-bg"><i class="fas fa-shopping-cart"></i></div>
+                <div class="stat-info">
+                    <span class="stat-title">Total Orders</span>
+                    <strong id="stat-orders">0</strong>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon-bg"><i class="fas fa-dollar-sign"></i></div>
+                <div class="stat-info">
+                    <span class="stat-title">Total Revenue</span>
+                    <strong id="stat-revenue">$0.00</strong>
+                </div>
+            </div>
+        </section>
+
+        <section class="admin-section card">
+            <div class="section-header">
+                <h2>Products</h2>
+                <button id="show-add-form-btn" class="cta-button">
+                    <i class="fas fa-plus"></i> Add Product
+                </button>
+            </div>
+
+            <form id="add-product-form" class="admin-form hidden">
+                <h3>Add New Product</h3>
+                <div class="form-grid">
+                    <input type="text" id="add-name" placeholder="Name (e.g., Gamepass Ultimate)" required>
+                    <input type="text" id="add-platform" placeholder="Platform (e.g., Xbox)" required>
+                    <input type="text" id="add-duration" placeholder="Duration (e.g., 3 Months)" required>
+                    <input type="number" id="add-price" placeholder="Price (e.g., 7.99)" step="0.01" required>
+                    <input type="number" id="add-price_before" placeholder="Price Before (e.g., 12.99)" step="0.01">
+                    <input type="number" id="add-stock" placeholder="Stock (e.g., 100)" required>
+                </div>
+                <input type="text" id="add-image_url" placeholder="Image URL" required>
+                <div class="form-actions">
+                    <button type="submit" class="cta-button">Save Product</button>
+                    <button type="button" id="cancel-add-btn" class="button-secondary">Cancel</button>
+                </div>
+            </form>
+
+            <div class="table-container">
+                <table id="products-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Platform</th>
+                            <th>Duration</th> <th>Price</th>
+                            <th>Stock</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="products-list">
+                        </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="admin-section card">
+            <div class="section-header">
+                <h2>Recent Orders</h2>
+            </div>
+            <div class="table-container">
+                <table id="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Order #</th>
+                            <th>Customer</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                            <th>Payment</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="orders-list">
+                        </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="edit-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>Edit Product</h3>
+            <form id="edit-product-form">
+                <input type="hidden" id="edit-id">
+                <label>Name</label>
+                <input type="text" id="edit-name" required>
+                <label>Platform</label>
+                <input type="text" id="edit-platform" required>
+                <label>Duration</label>
+                <input type="text" id="edit-duration" required>
+                <label>Price</label>
+                <input type="number" id="edit-price" step="0.01" required>
+                <label>Price Before (Optional)</label>
+                <input type="number" id="edit-price_before" step="0.01">
+                <label>Stock</label>
+                <input type="number" id="edit-stock" required>
+                <label>Image URL</label>
+                <input type="text" id="edit-image_url" required>
+
+                <div class="form-actions">
+                    <button type="submit" class="cta-button">Update Product</button>
+                    <button type="button" id="cancel-edit-btn" class="button-secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/static/admin.js"></script>
+</body>
+</html>
