@@ -2,3 +2,4 @@ Flask
 Flask-SQLAlchemy
 yagmail
 gunicorn
+psycopg2-binary
