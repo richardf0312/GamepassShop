@@ -9,7 +9,23 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__,
             template_folder='templates',
             static_folder='static')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'products.db')
+# === CONEXIÓN A LA BASE DE DATOS (PRODUCCIÓN Y LOCAL) ===
+# Busca la URL de la base de datos de Render
+DATABASE_URL = os.environ.get('DATABASE_URL')
+
+if DATABASE_URL:
+    # Si la encuentra (estamos en Render), la usa
+
+    # Corrección para SQLAlchemy (Render usa "postgresql://", SQLAlchemy prefiere "postgres://")
+    if DATABASE_URL.startswith("postgresql://"):
+        DATABASE_URL = DATABASE_URL.replace("postgresql://", "postgres://", 1)
+
+    app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
+else:
+    # Si no la encuentra (estamos en local), usa el archivo sqlite
+    print("DATABASE_URL no encontrada. Usando 'products.db' local.")
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'products.db')
+# === FIN DE LA CONEXIÓN ===
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
